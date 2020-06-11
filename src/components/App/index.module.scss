@@ -1,0 +1,198 @@
+@import "../../css/variables.scss";
+
+%mb24 {
+	margin-bottom: 24px;
+}
+%mb12 {
+	margin-bottom: 12px;
+}
+
+.center {
+	position: relative;
+	display: inline-flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 630px;
+	padding: 18px;
+	left: 50%;
+	top: 47%;
+	transform: translate(-50%, -50%);
+
+	@media screen and (max-width: $sm) {
+		padding: 16px;
+	}
+
+	.wrapper {
+		position: relative;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+
+		.inputRow {
+			position: relative;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			width: 100%;
+			height: $row-height;
+
+			@media screen and (max-width: $sm) {
+				height: $row-height * 2;
+				flex-direction: column;
+			}
+
+			.input {
+				position:relative;
+				height: $row-height;
+				width: 100%;
+				border: none;
+				font-size: 1.4em;
+				font-family: $font-family;
+				padding: 0 16px;
+				font-weight: 400;
+				color: rgba(0,0,0,.87);
+				background-color:#fff;
+				border: 1px solid #e4e4e4;
+				border-radius: $border-radius 0 0 $border-radius;
+
+				@media screen and (max-width: $sm) {
+					border-radius: $border-radius $border-radius 0 0;
+					font-size: 1.3em;
+				}
+			}
+			%button {
+				position:relative;
+				height: $row-height;
+				border:none;
+				color:#FFF;
+				padding: 0 14px;
+				font-size: 1.3em;
+				font-weight: 600;
+				font-family: $font-family;
+				cursor: pointer;
+				border-radius: 0 $border-radius $border-radius 0;
+				min-width: 192px;
+				transition: $transition;
+
+				@media screen and (max-width: $sm) {
+					border-radius: 0 0 $border-radius $border-radius;
+					width: 100%;
+				}
+			}
+
+			.convertButton {
+				@extend %button;
+				$button-color: #30A3E6;
+				background-color: $button-color;
+
+				&:hover {
+					background-color: darken($button-color, 6%);
+				}
+				&:active {
+					background-color: darken($button-color, 12%);
+				}
+			}
+			.copyButton {
+				@extend %button;
+				$button-color: #2B5278;
+				background-color: $button-color;
+				
+				&:hover {
+					background-color: darken($button-color, 3%);
+				}
+				&:active {
+					background-color: darken($button-color, 8%);
+				}
+				&[data-copied="true"] {
+					background-color: #64c747;
+				}
+			}
+		}
+	}
+
+	.openInWrapper {
+		position: relative;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		align-items:center;
+
+		.telegramIcon {
+			@extend %mb12;
+			position:relative;
+			width: 78px;
+			height: 78px;
+
+			img {
+				position:relative;
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		.username {
+			@extend %mb24;
+			position:relative;
+			width: 100%;
+			text-align: center;
+			font-family: $font-family;
+			font-size: 1.2em;
+			color: #808080;
+		}
+
+		%button {
+			position:relative;
+			border-radius: $row-height;
+			border:none;
+			color:#FFF;
+			font-weight: 600;
+			font-family: $font-family;
+			cursor: pointer;
+			white-space: nowrap;
+			transition: $transition;
+		}
+
+		.openInTelegram {
+			@extend %button;
+			@extend %mb12;
+			$button-color: #30A3E6;
+			background-color: $button-color;
+			height: 52px;
+			font-size: 1.3em;
+			padding: 0 20px;
+
+			&:hover {
+				background-color: darken($button-color, 6%);
+			}
+			&:active {
+				background-color: darken($button-color, 12%);
+			}
+		}
+		.openInTelegramWeb {
+			@extend %button;
+			$button-color: #30A3E6;
+			background-color: transparent;
+			border: 2px solid $button-color;
+			color: $button-color;
+			height: 46px;
+			font-size: 1.1em;
+			padding: 0 16px;
+		}
+	}
+}
+
+.made {
+	position:fixed;
+	bottom: 12px;
+	width: 100%;
+	text-align: center;
+	font-family: $font-family;
+	font-size: 1em;
+	color: #6c757d;
+
+	.link {
+		color: inherit;
+	}
+}
